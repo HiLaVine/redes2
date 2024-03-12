@@ -4,13 +4,10 @@ import os
 import sys
 import shutil
 
-'''
-Nombres: Hernández Hernández Jorge Gabriel
-         Galvan Sanchez Citlalli
-Grupo:6CM1
-Aplicaciones para Comunicaciones en Red
-Profesor: Axel Ernesto Moreno Cervantes 
-'''
+### Practica 01 ###
+### Farrera Mendez Emmanuel Sinai ###
+### Ramirez Lopez Hiram Felipe ###
+### Aplicaciones para la comunicaciones en red ###
 
 # Crea un socket TCP/IP
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

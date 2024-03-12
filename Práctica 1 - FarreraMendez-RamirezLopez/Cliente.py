@@ -4,25 +4,34 @@ import pathlib
 import sys
 import shutil
 from pathlib import Path
-'''
-Nombres: Hernández Hernández Jorge Gabriel
-         Galvan Sanchez Citlalli
-Grupo:6CM1
-Aplicaciones para Comunicaciones en Red
-Profesor: Axel Ernesto Moreno Cervantes 
-'''
+
+### Practica 01 ###
+### Farrera Mendez Emmanuel Sinai ###
+### Ramirez Lopez Hiram Felipe ###
+### Aplicaciones para la comunicaciones en red ###
+
 
 # Crea un socket TCP/IP
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Define la dirección y el puerto del servidor al que se conectará el cliente
 server_address = ('127.0.0.1', 1234)
+
+# Imprime un mensaje indicando la conexión del cliente al servidor
 print('\nCliente Conectado: \x1b[1;31m{}\x1b[0m : \x1b[1;31m{}\x1b[0m'.format(*server_address))
+
+# Conecta el socket al servidor
 sock.connect(server_address)
-# Carpeta Local
+
+# Carpeta local
 carpeta = 'local'
 
-#Funcion para ver la Carpeta Local
+
+# Función para ver los contenidos de la carpeta local
 def verCarpetaLocal():
+    # Imprime un mensaje indicando que se mostrará la carpeta local
     print('\n\t\x1b[1;31mCarpeta Local\x1b[0m')
+
     # Se itera sobre los archivos y carpetas en la carpeta local
     for file in os.listdir(carpeta):
         # Si el archivo no tiene una extensión (es decir, es una carpeta), se imprime como tal
@@ -32,9 +41,12 @@ def verCarpetaLocal():
         else:
             print(f"'Archivo'| {file}")
 
-#Funcion para ver la Carpeta Remota
+
+# Función para ver los contenidos de la carpeta remota
 def verCarpetaRemota():
+    # Imprime un mensaje indicando que se mostrará la carpeta remota
     print('\n\t\x1b[1;31mCarpeta Remota\x1b[0m')
+
     # Se itera sobre los archivos y carpetas en la carpeta remota
     for file in os.listdir('remota'):
         # Si el archivo no tiene una extensión (es decir, es una carpeta), se imprime como tal
@@ -44,63 +56,83 @@ def verCarpetaRemota():
         else:
             print(f"'Archivo'| {file}")
 
-#Funcion para Crear Carpetas en la Carpeta Local
-def crear_carperta1(nombre):
+
+# Función para crear una carpeta en la carpeta local
+def crear_carpeta(nombre):
     # Cambiar al directorio 'local'
     os.chdir('local')
+
     # Verificar si la carpeta ya existe
     if os.path.exists(nombre):
         print('La carpeta ya existe')
-        sys.stdin.flush()
-        data = b'ERROR'
+        sys.stdin.flush()  # Flushea la entrada estándar del sistema
+        data = b'ERROR'  # Define un mensaje de error para enviar al cliente
     else:
-        # Crear la carpeta y enviar señal de finalización al cliente
+        # Crear la carpeta y enviar una señal de finalización al cliente
         os.makedirs(nombre, exist_ok=True)
         print(nombre, 'Carpeta creada correctamente en la Carpeta Local')
-        sys.stdin.flush()
-        data = b'DONE'
-    os.chdir('..')
-    return data
+        sys.stdin.flush()  # Flushea la entrada estándar del sistema
+        data = b'DONE'  # Define un mensaje de finalización para enviar al cliente
 
-#Funcion para Crear Carpetas en la Carpeta Remota
+    # Cambiar al directorio padre
+    os.chdir('..')
+
+    return data  # Devuelve el mensaje definido para enviar al cliente
+
+
+# Función para crear una carpeta en la carpeta remota
 def crear_carpeta(nombre):
+    # Cambiar al directorio 'remota'
     os.chdir('remota')
+
     # Verificar si la carpeta ya existe
     if os.path.exists(nombre):
         print('La carpeta ya existe')
-        sys.stdin.flush()
-        data = b'ERROR'
+        sys.stdin.flush()  # Flushea la entrada estándar del sistema
+        data = b'ERROR'  # Define un mensaje de error para enviar al cliente
     else:
-        # Crear la carpeta y enviar señal de finalización al cliente
+        # Crear la carpeta y enviar una señal de finalización al cliente
         os.makedirs(nombre, exist_ok=True)
         print(nombre, 'Carpeta creada correctamente en la Carpeta Remota')
-        sys.stdin.flush()
-        data = b'DONE'
+        sys.stdin.flush()  # Flushea la entrada estándar del sistema
+        data = b'DONE'  # Define un mensaje de finalización para enviar al cliente
+
     # Regresar al directorio padre
     os.chdir('..')
-    return data
 
-#Función para eliminar un Archivo en la Carpeta cliente
+    return data  # Devuelve el mensaje definido para enviar al cliente
+
+
+# Función para eliminar un archivo en la carpeta cliente
 def eliminar_archivo1(nombre):
+    # Imprime un mensaje indicando que se está eliminando el archivo
     print('Eliminando...', nombre)
-    # Eliminar el archivo especificado de la carpeta local
+
+    # Elimina el archivo especificado de la carpeta local
     os.unlink(os.path.join('local', nombre))
+
+    # Imprime un mensaje de confirmación de eliminación del archivo
     print('Archivo eliminado correctamente')
-    # Imprimir la confirmación de eliminación del archivo
+
+    # Imprime la confirmación de eliminación del archivo
     print('\n', data.decode())
 
-#Función para eliminar un Archivo en la Carpeta Servidor
+
+# Función para eliminar un archivo en la carpeta servidor
 def eliminar_archivo(nombre):
     while True:
-        # Esperar a recibir datos del cliente
+        # Espera a recibir datos del cliente
         data = sock.recv(1024)
+
         # Si el cliente envía la señal de finalización 'DONE'
         if data == b'DONE':
-            # Imprimir un mensaje que indica que el archivo ha sido eliminado de la carpeta remota
+            # Imprime un mensaje que indica que el archivo ha sido eliminado de la carpeta remota
             print(nombre, 'eliminado de la Carpeta Remota')
-            sys.stdin.flush()
-            break
-    sys.stdin.flush()
+            sys.stdin.flush()  # Limpia el buffer de entrada estándar
+            break  # Sale del bucle while
+
+    sys.stdin.flush()  # Limpia el buffer de entrada estándar
+
 
 #Función para eliminar una Carpeta en la Carpeta Cliente
 def eliminar_carpeta1(nombre):
@@ -112,6 +144,7 @@ def eliminar_carpeta1(nombre):
         print(f'Se ha eliminado la carpeta {nombre} correctamente')
     else:
         print(f'La carpeta {nombre} no existe en el directorio')
+
 
 #Función para eliminar una Carpeta en la Carpeta Servidor
 def eliminar_carpeta(nombre):
