@@ -7,7 +7,7 @@ from pathlib import Path
 
 ### Practica 01 ###
 ### Farrera Mendez Emmanuel Sinai ###
-### Ramirez Lopez Hiram Felipe ###
+### Ramirez Lopez Felipe Hiram ###
 ### Aplicaciones para la comunicaciones en red ###
 
 
@@ -58,7 +58,7 @@ def verCarpetaRemota():
 
 
 # Función para crear una carpeta en la carpeta local
-def crear_carpeta(nombre):
+def crear_carpeta1(nombre):
     # Cambiar al directorio 'local'
     os.chdir('local')
 
@@ -345,7 +345,7 @@ try:
         elif request == '3':
             print('\nNombre de la Carpeta Local: ')
             nombre = input('>>> ')
-            crear_carperta1(nombre)
+            crear_carpeta1(nombre)
             verCarpetaLocal()
         elif request == '4':
             print('\nNombre de la Carpeta Remota: ')

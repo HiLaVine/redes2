@@ -6,7 +6,7 @@ import shutil
 
 ### Practica 01 ###
 ### Farrera Mendez Emmanuel Sinai ###
-### Ramirez Lopez Hiram Felipe ###
+### Ramirez Lopez Felipe Hiram ###
 ### Aplicaciones para la comunicaciones en red ###
 
 # Crea un socket TCP/IP
