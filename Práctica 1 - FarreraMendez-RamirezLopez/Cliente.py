@@ -179,11 +179,11 @@ def subir_archivo(nombre):
         sys.stdin.flush()
     # Cerrar el archivo
     file.close()
-    # Cambiar al directorio anterior
-    os.chdir('..')
     # Indica que se ha completado la transferencia del archivo
     sock.send(b"DONE")
     print(nombre, "subido a la Carpeta Remota")
+    # Cambiar al directorio anterior
+    os.chdir('..')
 
 #Función para Subir Carpeta a la Carpeta Remota
 def subir_carpeta(nombre):
