@@ -429,6 +429,8 @@ try:
             verCarpetaRemota()
         else:
             break
+#except ConnectionAbortedError:
+   #print("Conexion perdida")
 
 finally:
     sock.close() #Cierra el Socket

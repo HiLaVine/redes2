@@ -7,7 +7,7 @@
     <list default="true" id="53e10333-2f44-4a79-856c-1974f29c7a31" name="Changes" comment="Practica 1 V1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/Horario Escom.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +51,7 @@
       <workItem from="1710103085230" duration="239000" />
       <workItem from="1710206930981" duration="3630000" />
       <workItem from="1710210713456" duration="42000" />
+      <workItem from="1710386487849" duration="2160000" />
     </task>
     <task id="LOCAL-00001" summary="Practica 1 V1.0">
       <option name="closed" value="true" />
@@ -79,7 +80,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Practica 1 V1.0" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Práctica_1___FarreraMendez_RamirezLopez$Cliente.coverage" NAME="Cliente Coverage Results" MODIFIED="1710210730413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Práctica_1___FarreraMendez_RamirezLopez$Servidor.coverage" NAME="Servidor Coverage Results" MODIFIED="1710210727807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Práctica_1___FarreraMendez_RamirezLopez$Cliente.coverage" NAME="Cliente Coverage Results" MODIFIED="1710388632137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Práctica_1___FarreraMendez_RamirezLopez$Servidor.coverage" NAME="Servidor Coverage Results" MODIFIED="1710388410850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

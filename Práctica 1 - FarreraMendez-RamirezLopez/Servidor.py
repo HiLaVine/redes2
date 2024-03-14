@@ -16,7 +16,7 @@ server_address = ('127.0.0.1', 1234)
 print('Iniciando Servidor \x1b[1;31m{}\x1b[0m en puerto \x1b[1;31m{}\x1b[0m'.format(*server_address))
 #Asociar el socket a la dirección del servidor
 sock.bind(server_address)
-#Escucha en el socket en busca de conexiones entrantes
+#Escucha en el socket en busca de conexiones entrantes, en este caso solo una.
 sock.listen(1)
 #Carpeta del servidor
 carpeta = 'remota'
