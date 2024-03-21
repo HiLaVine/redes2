@@ -14,6 +14,7 @@ from pathlib import Path
 # Crea un socket TCP/IP
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+
 # Define la dirección y el puerto del servidor al que se conectará el cliente
 server_address = ('127.0.0.1', 1234)
 
@@ -429,8 +430,8 @@ try:
             verCarpetaRemota()
         else:
             break
-#except ConnectionAbortedError:
-   #print("Conexion perdida")
+except ConnectionAbortedError:
+   print("Conexion perdida")
 
 finally:
     sock.close() #Cierra el Socket

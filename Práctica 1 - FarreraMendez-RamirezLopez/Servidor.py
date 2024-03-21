@@ -4,6 +4,8 @@ import os
 import sys
 import shutil
 
+
+
 ### Practica 01 ###
 ### Farrera Mendez Emmanuel Sinai ###
 ### Ramirez Lopez Felipe Hiram ###
@@ -11,16 +13,19 @@ import shutil
 
 # Crea un socket TCP/IP
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.settimeout(None) # settimeout is the attr of socks.
 #Establece la dirección del servidor y el número de puerto
 server_address = ('127.0.0.1', 1234)
-print('Iniciando Servidor \x1b[1;31m{}\x1b[0m en puerto \x1b[1;31m{}\x1b[0m'.format(*server_address))
+
 #Asociar el socket a la dirección del servidor
 sock.bind(server_address)
-#Escucha en el socket en busca de conexiones entrantes, en este caso solo una.
-sock.listen(1)
-#Carpeta del servidor
-carpeta = 'remota'
 
+#Escucha en el socket en busca de conexiones entrantes, en este caso solo una.
+sock.listen()
+
+
+print('Iniciando Servidor \x1b[1;31m{}\x1b[0m en puerto \x1b[1;31m{}\x1b[0m'.format(*server_address))
+carpeta = 'remota'#Carpeta del servidor
 #Menu de opciones que puede realizar el usuario
 
 menu = b'''\x1b[1;33m\n
