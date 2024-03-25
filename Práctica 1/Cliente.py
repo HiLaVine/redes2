@@ -4,6 +4,11 @@ from tkinter import ttk, messagebox, simpledialog
 import os
 import zipfile
 
+### Practica 01 ###
+### Redes 2 ###
+### Farrera Mendez Emmanuel Sinai ###
+### Ramirez Lopez Felipe Hiram ###
+
 SERVER_HOST = '127.0.0.1'
 SERVER_PORT = 12345
 
