@@ -222,79 +222,131 @@ def main():
                 # Si el archivo o directorio no existe en la carpeta remota, imprime un mensaje de error
                 print(f"El archivo o directorio '{filename}' no existe en la carpeta remota.")
 
-
+        # Verifica si el comando recibido comienza con 'RENOMBRAR_LOCAL'
         elif command.startswith('RENOMBRAR_LOCAL'):
+            # Divide el comando en tres partes utilizando el espacio como separador y descarta la primera parte (que es 'RENOMBRAR_LOCAL')
             _, old_name, new_name = command.split()
+            # Utiliza la función os.rename() para cambiar el nombre del archivo o directorio en la carpeta local
+            # Combina las rutas del archivo o directorio original (old_name) y el nuevo nombre (new_name) para obtener las rutas completas
             os.rename(os.path.join(LOCAL_FOLDER, old_name), os.path.join(LOCAL_FOLDER, new_name))
+            # Imprime un mensaje indicando que se ha completado el proceso de renombrar en la carpeta local
             print(f"Se ha renombrado '{old_name}' a '{new_name}' en la carpeta local.")
 
+        # Verifica si el comando recibido comienza con 'RENOMBRAR_REMOTA'
         elif command.startswith('RENOMBRAR_REMOTA'):
+            # Divide el comando en tres partes utilizando el espacio como separador y descarta la primera parte (que es 'RENOMBRAR_REMOTA')
             _, old_name, new_name = command.split()
+            # Utiliza la función os.rename() para cambiar el nombre del archivo o directorio en la carpeta remota
+            # Combina las rutas del archivo o directorio original (old_name) y el nuevo nombre (new_name) para obtener las rutas completas
             os.rename(os.path.join(REMOTE_FOLDER, old_name), os.path.join(REMOTE_FOLDER, new_name))
+            # Imprime un mensaje indicando que se ha completado el proceso de renombrar en la carpeta remota
             print(f"Se ha renombrado '{old_name}' a '{new_name}' en la carpeta remota.")
 
+        # Verifica si el comando recibido comienza con 'COPIAR_LOCAL'
         elif command.startswith('COPIAR_LOCAL'):
+            # Divide el comando en dos partes utilizando el espacio como separador y descarta la primera parte (que es 'COPIAR_LOCAL')
             _, src = command.split()
+            # Obtiene la ruta completa del archivo o directorio origen (src) dentro de la carpeta local
             src_path = os.path.join(LOCAL_FOLDER, src)
+            # Define el nombre de destino para la copia agregando '(copia)' al nombre original
             dest = f"{src}(copia)"
+            # Obtiene la ruta completa del archivo o directorio destino dentro de la carpeta local
             dest_path = os.path.join(LOCAL_FOLDER, dest)
+            # Verifica si el archivo o directorio origen existe en la carpeta local
             if os.path.exists(src_path):
+                # Verifica si el origen es un directorio
                 if os.path.isdir(src_path):
+                    # Copia el directorio completo (incluyendo su contenido) al destino
                     shutil.copytree(src_path, dest_path)
                     print(f"Se ha hecho una copia del directorio '{src}' en '{dest}'.")
                 else:
+                    # Copia el archivo al destino
                     shutil.copy2(src_path, dest_path)
                     print(f"Se ha hecho una copia del archivo '{src}' en '{dest}'.")
             else:
+                # Imprime un mensaje indicando que el archivo o directorio origen no existe en la carpeta local
                 print(f"El archivo o directorio '{src}' no existe en la carpeta local.")
 
+        # Verifica si el comando recibido comienza con 'COPIAR_REMOTA'
         elif command.startswith('COPIAR_REMOTA'):
+            # Divide el comando en dos partes utilizando el espacio como separador y descarta la primera parte (que es 'COPIAR_REMOTA')
             _, src = command.split()
+            # Obtiene la ruta completa del archivo o directorio origen (src) dentro de la carpeta remota
             src_path = os.path.join(REMOTE_FOLDER, src)
+            # Define el nombre de destino para la copia agregando '(copia)' al nombre original
             dest = f"{src}(copia)"
+            # Obtiene la ruta completa del archivo o directorio destino dentro de la carpeta remota
             dest_path = os.path.join(REMOTE_FOLDER, dest)
+            # Verifica si el archivo o directorio origen existe en la carpeta remota
             if os.path.exists(src_path):
+                # Verifica si el origen es un directorio
                 if os.path.isdir(src_path):
+                    # Copia el directorio completo (incluyendo su contenido) al destino
                     shutil.copytree(src_path, dest_path)
                     print(f"Se ha hecho una copia del directorio '{src}' en '{dest}'.")
                 else:
+                    # Copia el archivo al destino
                     shutil.copy2(src_path, dest_path)
                     print(f"Se ha hecho una copia del archivo '{src}' en '{dest}'.")
             else:
+                # Imprime un mensaje indicando que el archivo o directorio origen no existe en la carpeta remota
                 print(f"El archivo o directorio '{src}' no existe en la carpeta remota.")
 
+        # Verifica si el comando recibido comienza con 'CREAR_CARPETA'
         elif command.startswith('CREAR_CARPETA'):
+            # Divide el comando en tres partes utilizando el espacio como separador y descarta la primera parte (que es 'CREAR_CARPETA')
             _, folder, dir_name = command.split()
+            # Verifica si la carpeta a crear debe estar en la carpeta local o remota
             if folder == "local":
+                # Crea un nuevo directorio dentro de la carpeta local con el nombre especificado
                 os.mkdir(os.path.join(LOCAL_FOLDER, dir_name))
+                # Imprime un mensaje indicando que se ha creado el directorio en la carpeta local
                 print(f"Se ha creado el directorio '{dir_name}' en la carpeta local.")
             elif folder == "remota":
+                # Crea un nuevo directorio dentro de la carpeta remota con el nombre especificado
                 os.mkdir(os.path.join(REMOTE_FOLDER, dir_name))
+                # Imprime un mensaje indicando que se ha creado el directorio en la carpeta remota
                 print(f"Se ha creado el directorio '{dir_name}' en la carpeta remota.")
 
+        # Verifica si el comando recibido comienza con 'CREAR_ARCHIVO'
         elif command.startswith('CREAR_ARCHIVO'):
+            # Divide el comando en tres partes utilizando el espacio como separador y descarta la primera parte (que es 'CREAR_ARCHIVO')
             _, folder, file_name = command.split()
+            # Separa el nombre del archivo y su extensión
             file = file_name.split(".", 1)
+            # Verifica si el archivo debe crearse en la carpeta local o remota
             if folder == "local":
+                # Crea un nuevo archivo dentro de la carpeta local con el nombre especificado y lo abre en modo de escritura ('a' para añadir contenido)
                 open(os.path.join(LOCAL_FOLDER, file_name), 'a').close()
-                os.path.join(LOCAL_FOLDER, file_name)
+                # Imprime un mensaje indicando que se ha creado el archivo en la carpeta local
                 print(f"Se ha creado el archivo '{file_name}' en la carpeta local.")
             elif folder == "remota":
+                # Crea un nuevo archivo dentro de la carpeta remota con el nombre especificado y lo abre en modo de escritura ('a' para añadir contenido)
                 open(os.path.join(REMOTE_FOLDER, file_name), 'a').close()
-                os.path.join(REMOTE_FOLDER, file_name)
+                # Imprime un mensaje indicando que se ha creado el archivo en la carpeta remota
                 print(f"Se ha creado el archivo '{file_name}' en la carpeta remota.")
-        
+
+        # Verifica si el comando recibido comienza con 'SALIR'
         elif command.startswith('SALIR'):
+            #Cambia la variable 'prendido' a False para indicar que el servidor debe detenerse
             prendido = False
 
+        # Cierra la escritura del socket asociado al cliente para indicar que el servidor ha terminado de enviar datos
         client_socket_2.shutdown(socket.SHUT_WR)
+        # Cierra el socket asociado al cliente
         client_socket.close()
 
+    # Verifica si el script se está ejecutando directamente
 if __name__ == "__main__":
+    # Llama a la función main para iniciar el servidor
     main()
-    
+    # Verifica si la carpeta local no existe
     if not os.path.exists(LOCAL_FOLDER):
+        # Crea la carpeta local si no existe
         os.mkdir(LOCAL_FOLDER)
+    # Verifica si la carpeta remota no existe
     if not os.path.exists(REMOTE_FOLDER):
-        os.mkdir(REMOTE_FOLDER)    
+        # Crea la carpeta remota si no existe
+        os.mkdir(REMOTE_FOLDER)
+
     
