@@ -17,7 +17,7 @@ RutaR = "remota"
 
 
 def CrearMenu():
-    # Crea una nueva ventana de la aplicación
+    # Crea una nueva ventana de la aplicación xd
     ventana = tk.Tk()
     ventana.title("Administrador de Archivos")
 
