@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<link rel=�shortcut icon� href=�favicon.ico� type=�image/x-icon� />
+<title>Formulario de Registro</title></head>
+<body bgcolor="#40E0D0">
+<center>
+<h1 style="color: #800000;">FORMULARIO DE REGISTRO</h1>
+<img src="escom2.jpg" width="520" height="220" />
+
+</center>
+<hr>
+
+<br>
+
+    <div class="container" style="display: flex; justify-content: center; align-items: center; width: 80%; margin: auto; background: #FFDEAD;">
+        <div class="form" style="width: 50%;">
+            <br><tx style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;FORMULARIO METODO GET</tx><br><br>
+            <FORM ACTION="http://127.0.0.1:8000">
+                Nombre: <BR>
+                    <INPUT TYPE="text" NAME="Nombre" value="Emmanuel">
+                    <br>
+                    Direccion: <BR>
+                    <INPUT TYPE="text" NAME="Direccion" value="Andador uno">
+                    <br>
+                    Telefono: <BR>
+                    <INPUT TYPE="text" NAME="Telefono" value="5611187833">
+                    <br>
+                    Comentarios:<br>
+                    <TEXTAREA NAME="comentario" ROWS="7" COLS="40">Hola soy alumno de la ESCOM</TEXTAREA>                    
+                <BR>
+                <INPUT TYPE="submit" VALUE="Enviar datos">
+                <INPUT TYPE="reset" VALUE="Borrar datos">
+            </FORM>
+        </div>
+
+        <div class="form" style="width: 50%;">
+            <br><tx style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;FORMULARIO METODO POST</tx><br><br>
+            <FORM ACTION="http://127.0.0.1:8000" method="POST">
+                Nombre: <BR>
+                    <INPUT TYPE="text" NAME="Nombre" value="Sinai">
+                    <br>
+                    Direccion: <BR>
+                    <INPUT TYPE="text" NAME="Direccion" value="Campo deportivo">
+                    <br>
+                    Telefono: <BR>
+                    <INPUT TYPE="text" NAME="Telefono" value="561187833">
+                    <br>
+                    Comentarios:<br>
+                    <TEXTAREA NAME="Comentario" ROWS="7" COLS="40">Hola soy alumno de ESCOM
+                    </TEXTAREA>                
+                <BR>
+                <INPUT TYPE="submit" VALUE="Enviar datos">
+                <INPUT TYPE="reset" VALUE="Borrar datos">
+            </FORM>
+        </div>
+    </div>
+</body>
+</html>
