@@ -16,13 +16,7 @@ public class ServidorHTTP
 		
 		class Manejador extends Thread //Clase manejador  para poder crear varios hilos
 		{
-//                      MANEJAR LOS ERRORES 404, 200, 403
-//                      PETICIONES QUE DEBEMOS HACER:
-//                      1. GET
-//                      2. POST
-//                      3. HEAD
-//                      4. PUT
-//                      5. DELETE
+
 		 	protected Socket socket; //Socket de cada cliente
 			protected PrintWriter pw;
 			protected BufferedOutputStream bos;
@@ -427,15 +421,15 @@ public class ServidorHTTP
                     try {
                         // Crea un pool de threads con un tamaño de 100
                         ExecutorService pool = Executors.newFixedThreadPool(TAM_POOL);
-                        System.out.println("\u001B[32mIniciando Servidor...\033[0m");
-                        System.out.println("\u001B[35m\n\nPool de Conexiones: " + TAM_POOL+" \033[0m");
+                        System.out.println("Iniciando Servidor...");
+                        System.out.println("\n\nPool de Conexiones: " + TAM_POOL);
                          // Inicializa el socket del servidor en un puerto específico.
 			this.ss=new ServerSocket(PUERTO);
-			System.out.println("\u001B[32mServidor iniciado:---OK \033[0m");
+			System.out.println("Servidor iniciado:---OK");
                         // Imprime la URL del servidor.
                         URL myURL = new URL("http://127.0.0.1:" + PUERTO);
-                        System.out.println("\u001B[33mServidor iniciado en: " + myURL+"\033[0m");
-			System.out.println("\u001B[36mEsperando por Cliente...\033[0m");
+                        System.out.println("Servidor iniciado en: " + myURL);
+			System.out.println("Esperando por Cliente...");
                         
                          // Bucle infinito para aceptar y manejar múltiples conexiones de clientes.
 			for(;;)
