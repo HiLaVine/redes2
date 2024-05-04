@@ -16,7 +16,6 @@ public class ServidorHTTP
 		
 		class Manejador extends Thread //Clase manejador  para poder crear varios hilos
 		{
-
 		 	protected Socket socket; //Socket de cada cliente
 			protected PrintWriter pw;
 			protected BufferedOutputStream bos;
@@ -50,11 +49,11 @@ public class ServidorHTTP
 						socket.close(); //Se Cierra el socket
 						return;
 					}
-					System.out.println("\u001B[33m\nCliente Conectado desde: "+socket.getInetAddress()+"\033[0m");
-					System.out.println("\u001B[33mPor el puerto: "+socket.getPort()+"\033[0m");                                       
+					System.out.println("Cliente Conectado desde: "+socket.getInetAddress());
+					System.out.println("Por el puerto: "+socket.getPort());                                       
 					StringTokenizer st1= new StringTokenizer(peticion,"\n"); //Separamos la petición por líneas
                                         String line = st1.nextToken(); //Obtenemos la primera línea de la petición
-                                        System.out.println("\n\u001B[32mMETODO: " + line+"\033[0m"); //Imprimimos la primera línea
+                                        System.out.println("\nMETODO: " + line); //Imprimimos la primera línea
                                         
                                         //Metodo GET 
 					if(line.indexOf("?")==-1 && line.toUpperCase().startsWith("GET")) //Si la línea no contiene "?" y empieza con "GET"
@@ -71,7 +70,7 @@ public class ServidorHTTP
 					}    
                                         else if(line.toUpperCase().startsWith("GET"))  //Si la línea empieza con "GET"
 					{       
-                                                System.out.println("\u001B[32mMETODO GET CON LOS PARAMETROS\033[0m");
+                                                System.out.println("METODO GET CON LOS PARAMETROS");
 						StringTokenizer tokens=new StringTokenizer(line,"?");
 						String req_a=tokens.nextToken();
 						String req=tokens.nextToken();
@@ -89,7 +88,7 @@ public class ServidorHTTP
                                                 respuesta.append(server);
                                                 respuesta.append("Connection: close\n\n");
                                                 respuesta.append("<html><head><title>SERVIDOR WEB</title></head>\n");
-                                                respuesta.append("<body bgcolor=\"#ffe4e1\"><center><h1><br>Parametros Obtenidos mediante el Metodo GET</br></h1><h3><b>\n");
+                                                respuesta.append("<body bgcolor=\"#fff\"><center><h1><br>Parametros Obtenidos mediante el Metodo GET</br></h1><h3><b>\n");
                                                 respuesta.append(parametros);
                                                 respuesta.append("</b></h3>\n");
                                                 respuesta.append("</center></body></html>\n\n");
@@ -109,7 +108,7 @@ public class ServidorHTTP
                                             StringTokenizer stokens = new StringTokenizer(peticion, "\n");
                                             String _line_ = stokens.nextToken();  // Recoge el primer token de la petición
                                             
-                                             /* Mientras que la línea no empiece con "Nombre" y todavía queden tokens en stokens,   sigue cogiendo el siguiente token y asignándolo en la mimsa linea */
+                                             /* Mientras que la línea no empiece con "Nombre" y todavía queden tokens en stokens,   sigue tomando el siguiente token y asignándolo en la mimsa linea */
                                             while ( !_line_.startsWith("Nombre") && stokens.hasMoreElements() ) {
                                                 _line_ = stokens.nextToken();                                         
                                             }

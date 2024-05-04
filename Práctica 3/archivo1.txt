@@ -1,0 +1,1 @@
+El archivo /archivo1.txt ya existe. El contenido se ha modificado.
