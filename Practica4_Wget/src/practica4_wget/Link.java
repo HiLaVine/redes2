@@ -1,4 +1,4 @@
-package practica5_wget;
+package practica4_wget;
 
 // Importamos las librerías necesarias
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package practica5_wget;
+package practica4_wget;
 
-import practica5_wget.Link;
+import practica4_wget.Link;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -17,7 +17,7 @@ public class Archivo extends Thread {
     private Link downloadFilesList;
     private URL url;
     // Definimos la ruta donde se guardarán los archivos descargados
-    static String path = "C:\\programacion\\redes2\\Practica5_Wget\\Descargas\\";
+    static String path = "C:\\programacion\\redes2\\Practica4_Wget\\Descargas\\";
     
     // Constructor que toma una URL y una lista de archivos para descargar
     public Archivo(URL url, Link downloadFilesList){
@@ -30,7 +30,7 @@ public class Archivo extends Thread {
         try {
             // Intentamos descargar el archivo
             download(url);
-            System.out.println("\u001B[34mDESCARGA COMPLETADA\u001B[0m");
+            System.out.println("DESCARGA COMPLETADA");
         } catch (Exception e) {
             // Imprimimos la excepción en caso de error
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class Archivo extends Thread {
                 
                 // Si el nombre contiene un ".", es un archivo
                 if(fileName.contains(".")){
-                    System.out.println("\u001B[32mDescargando el archivo: " + newName + "\u001B[0m");
+                    System.out.println("Descargando el archivo: " + newName);
                     newName = name.substring(0, name.lastIndexOf("/"));
                     File f = new File(path + newName);
                     f.mkdirs();
@@ -75,7 +75,7 @@ public class Archivo extends Thread {
                 }
                 // Si no, es una carpeta
                 else{
-                    System.out.println("\u001B[33mDescargando la carpeta: " + name + "\u001B[0m");
+                    System.out.println("Descargando la carpeta: " + name);
                     File f = new File(path + name);
                     f.mkdirs();
                     f.setWritable(true);
@@ -116,8 +116,8 @@ public class Archivo extends Thread {
                             }
                             
                             // Actualizamos la línea para que apunte al archivo descargado localmente
-                            line = "\u001B[34m" + line.replace("https://", path) + "\u001B[0m";
-                            line = "\u001B[34m" + line.replace("http://", path) + "\u001B[0m";
+                            line = line.replace("https://", path);
+                            line = line.replace("http://", path);
                             
                             if(!auxNewLink.startsWith("/")){
                                 line  = line.replace("href=\"", "href=\"" + path + url.getHost() + url.getFile() + "/");
@@ -142,8 +142,8 @@ public class Archivo extends Thread {
                             }
                             
                             // Actualizamos la línea para que apunte a la imagen descargada localmente
-                            line = "\u001B[34m" + line.replace("https://", path) + "\u001B[0m";
-                            line = "\u001B[34m" + line.replace("http://", path) + "\u001B[0m";
+                            line = line.replace("https://", path);
+                            line = line.replace("http://", path);
                             line  = line.replace("/icons/", "../icons/");
     
                         }

@@ -1,4 +1,4 @@
-package practica5_wget;
+package practica4_wget;
 
 // Importa las librerías necesarias
 import java.net.URL;
@@ -12,17 +12,17 @@ public class main {
     static Link downloadFilesList = new Link();
     
     // MAX_T es el número máximo de hilos que el programa puede tener en funcionamiento.
-    static final int MAX_T = 10; 
+    static final int MAX_T = 100; 
     
     public static void main(String[] args) {
         // Imprime el título de la aplicación
-        System.out.println("\u001B[32m\t\t\t\tAPLICACIÓN WGET\u001B[0m");
-        System.out.println("\nHerramienta de descarga WGET para uno o más recursos a través de sus respectivos URL’s");
+        System.out.println("\t\t\t\tAPLICACION WGET");
+        System.out.println("\nHerramienta de descarga WGET para uno o mas recursos a traves de sus respectivos URLs");
         // Crea un objeto Scanner para leer la entrada del usuario
         Scanner sc= new Scanner(System.in);
         
         // Solicita al usuario que introduzca una URL
-        System.out.println("\u001B[33m\nIngresa la URL del Sitio WEB del que desea descargar los archivos y/o carpetas: \u001B[0m");
+        System.out.println("\nIngresa la URL del Sitio WEB del que desea descargar los archivos y/o carpetas: ");
         
         // Lee la URL del usuario
         String url= sc.nextLine();
