@@ -15,9 +15,6 @@ public class main {
     static final int MAX_T = 100; 
     
     public static void main(String[] args) {
-        // Imprime el título de la aplicación
-        System.out.println("\t\t\t\tAPLICACION WGET");
-        System.out.println("\nHerramienta de descarga WGET para uno o mas recursos a traves de sus respectivos URLs");
         // Crea un objeto Scanner para leer la entrada del usuario
         Scanner sc= new Scanner(System.in);
         
